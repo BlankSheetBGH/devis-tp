@@ -15,23 +15,20 @@ export class AppComponent {
   coutAlgerMontreal : number;
   coutAlgerTataouine : number;
   coutAlgerTokyo : number;
-  coutCourrier : number;
+  coutCourrier = 0;
   departureCities = ['Alger'];
-  destinationCities = ['Montreal','Tataouine Les Bains', 'Tokyo'];
+  destinationCities = ['Montreal','Tataouine', 'Tokyo'];
   devis= 0;      
   minDate = new Date();
   //maxDate = new Date(2029, 9, 20); 20 octobre 2029  
   testing:string;
   devisForm: FormGroup;
-  marche = 12;
-
+  
   ngOnInit(){                
     this.coutAlgerMontreal = 90000;   
     this.coutAlgerTataouine = 13000;
-    this.coutAlgerTokyo = 150000;    
-    this.coutCourrier = 0;
-    this.testing= "";
-    
+    this.coutAlgerTokyo = 150000;        
+    this.testing= "";    
 
     this.devisForm= new FormGroup ({
       'depart': new FormControl('null', Validators.required),
@@ -45,12 +42,11 @@ export class AppComponent {
    
 
   //determiner le cout d'un aller simple selon destination
-  coutCourrierCalc(){
-    this.marche++;
+  coutCourrierCalc(){    
     if (this.devisForm.get("destinations").value == "Montreal") {
       this.coutCourrier=this.coutAlgerMontreal;
     }   
-    else if(this.devisForm.get("destinations").value == "destinationCities[1]"){
+    else if(this.devisForm.get("destinations").value == "Tataouine"){
       this.coutCourrier=this.coutAlgerTataouine;
     }
     else if(this.devisForm.get("destinations").value == "Tokyo"){
@@ -63,7 +59,7 @@ export class AppComponent {
   // Aller simple/aller-retour
   toggleAllerSimple() {
       this.allerSimple = !this.allerSimple;   
-      if (this.allerSimple = false) {
+      if (this.allerSimple == false) {
         this.coef = 2;
       }   
       else {
@@ -87,8 +83,6 @@ export class AppComponent {
   //Calcul du devis
   calculDevis() {
     this.devis= this.devisForm.get("personnes").value*this.coef*this.coutCourrier;
-
-
 
     this.testing = this.devisForm.get("destinations").value;
   }

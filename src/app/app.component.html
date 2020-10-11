@@ -16,7 +16,7 @@
       <mat-form-field appearance="fill" >
         <mat-label>Ville</mat-label>
         <mat-select formControlName="depart" >
-          <mat-option value="departureCities[0]">Alger</mat-option>
+          <mat-option value="{{departureCities[0]}}">Alger</mat-option>
         </mat-select>
       </mat-form-field>      
     </div>  
@@ -28,10 +28,10 @@
     <div class="example-button-row">
       <mat-form-field appearance="fill" >
         <mat-label>Ville</mat-label>
-        <mat-select formControlName="destinations" change="coutCourrierCalc()">        
-          <mat-option value="destinationCities[0]">Montreal</mat-option>
-          <mat-option value="destinationCities[1]">Tataouine</mat-option>
-          <mat-option value="destinationCities[2]">Tokyo</mat-option>
+        <mat-select formControlName="destinations" (selectionChange)="coutCourrierCalc()">        
+          <mat-option value="{{destinationCities[0]}}">Montreal</mat-option>
+          <mat-option value="{{destinationCities[1]}}">Tataouine</mat-option>
+          <mat-option value="{{destinationCities[2]}}">Tokyo</mat-option>
         </mat-select>
       </mat-form-field>
     </div>  
@@ -112,11 +112,11 @@
     <button mat-raised-button color="accent" (click)="calculDevis()">Demande de devis</button>
         <br>
         <br>
-        <span>Estimation du cout de votre voyage : {{devis}} Dinars</span>
+        <span>Estimation du cout de votre voyage : {{ devis | currency:'USD':'symbol-narrow':'1.2-2'}}</span>
         <br>
         <hr>
         <br>
-        <span>check : {{coutCourrier}} et {{coef}}</span>
+        <span>check : {{testing}} ettt {{marche}}</span>
         <br>
   </section>
   
