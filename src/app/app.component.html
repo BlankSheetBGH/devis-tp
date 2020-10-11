@@ -64,7 +64,7 @@
   <br>
   
 
-  <section>
+  <section *ngIf="!allerSimple">
     <div class="section-label">Retour</div>
     <div class="example-button-row">
       <mat-form-field class="example-full-width" appearance="fill" >
@@ -74,6 +74,20 @@
           <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
         </mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <section *ngIf="allerSimple">
+    <div class="section-label">Retour</div>
+    <div class="example-button-row">
+      <mat-form-field class="example-full-width" appearance="fill" >
+        <mat-label>AllerSimple</mat-label>
+        <input matInput [matDatepicker]="picker2" [min]="minDate" formControlName="retour" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker2">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
     </div>
   </section>
@@ -116,7 +130,7 @@
         <br>
         <hr>
         <br>
-        <span>check : {{testing}} ettt {{marche}}</span>
+        <span>check : {{testing}} </span>
         <br>
   </section>
   
