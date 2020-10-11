@@ -23,6 +23,7 @@ export class AppComponent {
   //maxDate = new Date(2029, 9, 20); 20 octobre 2029  
   testing:string;
   devisForm: FormGroup;
+  marche = 100;
   
   ngOnInit(){                
     this.coutAlgerMontreal = 90000;   
@@ -68,16 +69,12 @@ export class AppComponent {
   }
     
   //count number of persons
-  increment() {
-    this.devisForm.setValue({
-      personnes: this.devisForm.get("personnes").value + 1
-    });
+  increment() {    
+    this.devisForm.get("personnes").setValue(this.devisForm.get("personnes").value + 1 )
   }
   
-  decrement() {
-    this.devisForm.setValue({
-      personnes: this.devisForm.get("personnes").value - 1
-    });
+  decrement() {   
+    this.devisForm.get("personnes").setValue(this.devisForm.get("personnes").value - 1 )
   }
 
   //Calcul du devis

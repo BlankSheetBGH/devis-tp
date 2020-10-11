@@ -8,6 +8,12 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <!--Depart et destination-->
+<div
+      class="bg bg-bg-chrome act"
+      style="
+        background-image: url(https://i.pinimg.com/originals/3f/3b/71/3f3b71b2ce2b736ec815f0e18b30e8c3.jpg);
+      "
+></div>
 <div class = "container">
 <form [formGroup]="devisForm">
   <section>
@@ -48,12 +54,12 @@
   <br>
   <br>
 
-  <section>
+  <section >
     <div class="section-label">Aller</div>
     <div class="example-button-row">
       <mat-form-field class="example-full-width" appearance="fill" >
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="aller">
+        <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="aller" >
         <mat-datepicker-toggle matSuffix [for]="picker">
           <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
         </mat-datepicker-toggle>
@@ -64,12 +70,12 @@
   <br>
   
 
-  <section *ngIf="!allerSimple">
+  <section >
     <div class="section-label">Retour</div>
     <div class="example-button-row">
       <mat-form-field class="example-full-width" appearance="fill" >
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker1" [min]="minDate" formControlName="retour">
+        <input matInput [matDatepicker]="picker1" [min]="minDate" formControlName="retour" [disabled]="allerSimple">
         <mat-datepicker-toggle matSuffix [for]="picker1">
           <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
         </mat-datepicker-toggle>
@@ -77,22 +83,7 @@
       </mat-form-field>
     </div>
   </section>
-
-  <section *ngIf="allerSimple">
-    <div class="section-label">Retour</div>
-    <div class="example-button-row">
-      <mat-form-field class="example-full-width" appearance="fill" >
-        <mat-label>AllerSimple</mat-label>
-        <input matInput [matDatepicker]="picker2" [min]="minDate" formControlName="retour" disabled>
-        <mat-datepicker-toggle matSuffix [for]="picker2">
-          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-        </mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field>
-    </div>
-  </section>
   <br>
-
   <hr>
 
   <!--mini fab button-->
@@ -122,16 +113,13 @@
 
   <!--Devis-->
   <br>
-  <section>
-    <button mat-raised-button color="accent" (click)="calculDevis()">Demande de devis</button>
-        <br>
-        <br>
+  <section>    
+    <button mat-raised-button color="accent" (click)="calculDevis()">Demande de devis</button><br><br>                
         <span>Estimation du cout de votre voyage : {{ devis | currency:'USD':'symbol-narrow':'1.2-2'}}</span>
         <br>
         <hr>
         <br>
-        <span>check : {{testing}} </span>
-        <br>
+        <span>check : {{testing}} et {{marche}}</span><br>        
   </section>
   
   <hr>
